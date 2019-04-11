@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:despatch_advice="urn:gs1:ecom:despatch_advice:xsd:3" xmlns:ecom_common="urn:gs1:ecom:ecom_common:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:shared_common="urn:gs1:shared:shared_common:xsd:3" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:gs1:ecom:despatch_advice:xsd:3" version="3.3">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:despatch_advice="urn:gs1:ecom:despatch_advice:xsd:3" xmlns:ecom_common="urn:gs1:ecom:ecom_common:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:shared_common="urn:gs1:shared:shared_common:xsd:3" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:gs1:ecom:despatch_advice:xsd:3" version="3.3">
     <xsd:annotation>
         <xsd:documentation><![CDATA[---------------------------
 © Copyright GS1, 2016
