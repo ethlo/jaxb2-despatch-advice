@@ -82,7 +82,7 @@ The schema and subsequent updates will be provided on the GS1 websites.
     <xsd:complexType name="DespatchAdviceMessageType">
         <xsd:sequence>
             <xsd:element ref="sh:StandardBusinessDocumentHeader"/>
-            <xsd:element maxOccurs="10000" name="despatchAdvice" type="despatch_advice:DespatchAdviceType"/>
+            <xsd:element maxOccurs="unbounded" name="despatchAdvice" type="despatch_advice:DespatchAdviceType"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:complexType name="DespatchAdviceQuantityVarianceType">

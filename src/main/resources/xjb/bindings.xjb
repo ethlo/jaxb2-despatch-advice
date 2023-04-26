@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="3.0"
+               xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               jaxb:extensionBindingPrefixes="xjc">
+
+    <jaxb:globalBindings>
+        <jaxb:javaType name="java.time.LocalDate" xmlType="xs:date"
+                       parseMethod="com.ethlo.jaxb.DateConverter.parseDate"
+                       printMethod="com.ethlo.jaxb.DateConverter.printDate"/>
+
+        <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:dateTime"
+                       parseMethod="com.ethlo.jaxb.DateConverter.parseDateTime"
+                       printMethod="com.ethlo.jaxb.DateConverter.printDateTime"/>
+
+    </jaxb:globalBindings>
+
+    <jaxb:bindings scd="x-schema::a" xmlns:a="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.unece.sbdh"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings scd="x-schema::shared" xmlns:shared="urn:gs1:shared:shared_common:xsd:3">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.gs1.common.shared"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings scd="x-schema::despatch_advice" xmlns:despatch_advice="urn:gs1:ecom:despatch_advice:xsd:3">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.gs1.despatchadvice"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings scd="x-schema::ecom_common" xmlns:ecom_common="urn:gs1:ecom:ecom_common:xsd:3" xmlns:shared_common="urn:gs1:shared:shared_common:xsd:3">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.gs1.common.ecom"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

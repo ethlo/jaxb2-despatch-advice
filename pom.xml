@@ -5,20 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-despatch-advice</artifactId>
-    <version>3.3.1.1</version>
+    <version>3.4.0</version>
     <name>jaxb2-despatch-advice bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
         <dependency>
             <groupId>com.ethlo.unece</groupId>
             <artifactId>jaxb2-sbdh</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -26,7 +32,7 @@
     <developers>
         <developer>
             <name>Morten Haraldsen</name>
-            <url>http://ethlo.com</url>
+            <url>https://ethlo.com</url>
         </developer>
     </developers>
     <build>
@@ -52,7 +58,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>xjc</id>
@@ -63,12 +69,16 @@
                 </executions>
                 <configuration>
                     <laxSchemaValidation>true</laxSchemaValidation>
+                    <verbose>true</verbose>
+                    <xjbSources>
+                        <source>src/main/resources/xjb</source>
+                    </xjbSources>
                     <sources>
-                        <source>src/main/resources</source>
+                        <source>src/main/resources/schemas</source>
                     </sources>
-                    <extension>true</extension>
                     <arguments>
                         <argument>-Xfluent-api</argument>
+                        <argument>-XJsr303Annotations:validationAnnotations=jakarta</argument>
                     </arguments>
                 </configuration>
                 <dependencies>
@@ -83,37 +93,36 @@
                             </exclusion>
                         </exclusions>
                     </dependency>
+                    <dependency>
+                        <groupId>com.fillumina</groupId>
+                        <artifactId>krasa-jaxb-tools</artifactId>
+                        <version>2.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.glassfish.jaxb</groupId>
+                        <artifactId>jaxb-xjc</artifactId>
+                        <version>4.0.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>jakarta.activation</groupId>
+                        <artifactId>jakarta.activation-api</artifactId>
+                        <version>${version.maven.jakarta.activation.api}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>${version.maven.jakarta.xml.bind-api}</version>
+                    </dependency>
                 </dependencies>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
-                <version>3.8.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.9</version>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.3.0</version>
-                <configuration>
-                    <repoToken>$</repoToken>
-                </configuration>
+                <version>3.10.1</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -199,7 +208,7 @@
         <repository>
             <id>sonatype-nexus-staging</id>
             <name>Nexus Release Repository</name>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
@@ -208,14 +217,20 @@
         </snapshotRepository>
     </distributionManagement>
     <scm>
-        <url>http://github.com:ethlo/jaxb2-despatch-advice</url>
+        <url>https://github.com:ethlo/jaxb2-despatch-advice</url>
         <connection>scm:git:git@github.com:ethlo/jaxb2-despatch-advice</connection>
         <developerConnection>scm:git:git@github.com:ethlo/jaxb2-despatch-advice</developerConnection>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <gpg.skip>true</gpg.skip>
+        <version.maven.jakarta.xml.bind-api>3.0.0</version.maven.jakarta.xml.bind-api>
+        <version.maven.jakarta.ws.rs-api>3.0.0</version.maven.jakarta.ws.rs-api>
+        <version.maven.jakarta.activation.api>2.0.0</version.maven.jakarta.activation.api>
+        <version.maven.jaxb.impl>3.0.0</version.maven.jaxb.impl>
+        <version.maven.jaxb.xjc>3.0.0</version.maven.jaxb.xjc>
+        <version.maven.servlet.api>5.0.0</version.maven.servlet.api>
     </properties>
 </project>
