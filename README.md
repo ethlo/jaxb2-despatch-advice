@@ -1,5 +1,8 @@
 JAXB2 GS1 Despatch Advice bindings
 ==================================
+
+> **Archived:** this project is no longer maintained. Released versions remain available on Maven Central.
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.ethlo.gs1/jaxb2-despatch-advice.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.ethlo.gs1%22)
 [![Build Status](https://travis-ci.org/ethlo/jaxb2-despatch-advice.svg?branch=master)](https://travis-ci.org/ethlo/jaxb2-despatch-advice)
 
